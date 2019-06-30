@@ -102,7 +102,21 @@ companion object{
         return dayOfWeekString
     }
 
-    fun speicelDate(date: Date): String {
+    fun getSpeicelDate(speicelDate: Date): String {
+        var speicelDateString: String = "ERROR!"
+        when (speicelDate){
+            Date(20, 12, 1997)->{
+               speicelDateString = "my birthday"
+            }
+            Date(18, 7 ,2014)->{
+                speicelDateString = "the date!"
+            }
+            Date(18, 2, 1998)->{
+                speicelDateString = "birthday my wife"
+            }
 
+
+        }
+       return speicelDateString
     }
 }

@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        var date = Date(20, 12, 97)
+        var date = Date(7, 12, 1997)
         var date2 = Date(345, 14, 97)
         var dateDescription: String = date.getDate()
         var dateDescription2: String = date2.getDate()
@@ -31,6 +31,16 @@ class MainActivity : AppCompatActivity() {
         Log.d("TESTSTRING6", dayString)
         dayString = date.getDayOfWeeks(dayOfWeek = 7)
         Log.d("TESTSTRING7", dayString)
+
+        var date01: Date = Date(20, 12, 1997)
+        var date02: Date = Date(18, 2, 1998)
+
+
+        var speicel : String = date.getSpeicelDate(speicelDate = date01 )
+        Log.d("TEST23", speicel )
+        speicel = date02.getSpeicelDate(speicelDate = date02)
+        Log.d("TEST23", speicel)
+
     }
 }
 
