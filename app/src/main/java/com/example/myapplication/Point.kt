@@ -26,6 +26,8 @@ class Point {
 
     fun getRighter(point1: Point, point2: Point): Point {
         if (point1.x < point2.x) {
+
+            //just trying out a comment
             return point2
         } else {
             return point1
