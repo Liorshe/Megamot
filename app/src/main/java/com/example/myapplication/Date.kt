@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+@Suppress("UNREACHABLE_CODE")
 class Date() {
 
     var day: Int = 0
@@ -8,28 +9,28 @@ class Date() {
     var dayOfWeek: Int = 0
 
 
-companion object{
-    const val DAYS_IN_YEAR = 365
-    const  val DAYS_IN_MONTH = 30
+    companion object {
+        const val DAYS_IN_YEAR = 365
+        const val DAYS_IN_MONTH = 30
 
-}
-
-
-    constructor(day: Int, month: Int, year: Int): this() {
+    }
 
 
-        if (day>0 && day < 32) {
+    constructor(day: Int, month: Int, year: Int) : this() {
+
+
+        if (day > 0 && day < 32) {
             this.day = day
 
-        }else {
+        } else {
             this.day = 1
         }
-        if (month>0 && month<13)
+        if (month > 0 && month < 13)
             this.month = month
         else
             this.month = 1
 
-        if (year> 1900 && year< 2019)
+        if (year > 1900 && year < 2019)
             this.year = year
         else
             this.year = 1901
@@ -40,41 +41,107 @@ companion object{
 
     }
 
-    fun getDate(): String{
+    fun getDateDescription(): String {
         return "$day/$month/$year"
     }
 
 
-    fun convertDateToDays(date:Date ): Int{
-        val yearsToDays : Int = date.year*DAYS_IN_YEAR
-        val monthsToDays : Int = date.month*DAYS_IN_MONTH
-        val total : Int = yearsToDays+monthsToDays+date.day
+    fun convertDateToDays(date: Date): Int {
+        val yearsToDays: Int = date.year * DAYS_IN_YEAR
+        val monthsToDays: Int = date.month * DAYS_IN_MONTH
+        val total: Int = yearsToDays + monthsToDays + date.day
         return total
     }
 
+    fun getLaterDate(date1: Date, date2: Date): Date {
+        if (date1.year > date2.year) {
+            return date1
+        } else if (date2.year > date1.year) {
+            return date2
+        } else {//date1.year==date2.year
+            if (date1.month > date2.month) {
+                return date1
+            } else if (date2.month > date1.month) {
+                return date2
+            } else {
+                if (date1.day > date2.day) {
+                    return date1
+                } else if (date2.day > date1.day) {
+                    return date2
+                } else {
+                    return date1
+                }
+            }
+        }
+    }
 
-    fun convertDaysToDate(days: Int): Date{
-        val daysToYears : Int = days/DAYS_IN_YEAR
-        val remainingDaysFromYear : Int = days%DAYS_IN_YEAR
-        val daysToMonth : Int = (remainingDaysFromYear/DAYS_IN_MONTH)+1
-        val remainingDays : Int = remainingDaysFromYear%DAYS_IN_MONTH
+    //                fun getEarlyDate(date1: Date, date2: Date): Date {
+//                    if (date1.year > date2.year) {
+//                        return date2
+//                    } else if (date1.year == date2.year) {
+//                        if (date1.month > date2.month) {
+//                            return date2
+//                        } else if (date1.month == date2.month) {
+//                            if (date1.day > date2.day) {
+//                                return date2
+//                            } else {
+//                                return date1
+//                            }
+//                        } else {
+//                            return date1
+//                        }
+//                    } else {
+//                        return date1
+//                    }
+//                }
+    fun getEarlyDate(date1: Date, date2: Date): Date {
+        if (date1.year > date2.year) {
+            return date2
+        }
+        if (date2.year > date1.year) {
+            return date1
+        }//date1.year == date2.year
+        if (date1.month > date2.month) {
+            return date2
+        }
+        if (date2.month > date1.month) {
+            return date1
+        }  //date1.month == date2.month
+        if (date1.day > date2.day) {
+            return date2
+        }
+         if (date2.day > date1.day) {
+            return date1
+        } else {//date1.day == date2.day
+            return date1
+        }
 
-        val final = Date(remainingDays, daysToMonth , daysToYears)
+
+    }
+
+
+    fun convertDaysToDate(days: Int): Date {
+        val daysToYears: Int = days / DAYS_IN_YEAR
+        val remainingDaysFromYear: Int = days % DAYS_IN_YEAR
+        val daysToMonth: Int = (remainingDaysFromYear / DAYS_IN_MONTH) + 1
+        val remainingDays: Int = remainingDaysFromYear % DAYS_IN_MONTH
+
+        val final = Date(remainingDays, daysToMonth, daysToYears)
         return final
 
-   }
+    }
 
-    fun getMidDate(date1: Date , date2: Date): Date{
+    fun getMidDate(date1: Date, date2: Date): Date {
         val totalDate1Days: Int = convertDateToDays(date1) //x1
         val totalDate2Days: Int = convertDateToDays(date2) //x2
-        val addedDays: Int = totalDate1Days+totalDate2Days //x1+x2
-        val average: Int= addedDays/2 //(x1+x2)/2
+        val addedDays: Int = totalDate1Days + totalDate2Days //x1+x2
+        val average: Int = addedDays / 2 //(x1+x2)/2
         val averageDate: Date = convertDaysToDate(average)
         return averageDate
 
     }
 
-    fun getDayOfWeeks(dayOfWeek: Int): String{
+    fun getDayOfWeeks(dayOfWeek: Int): String {
         var dayOfWeekString: String = "ERROR"
         when (dayOfWeek) {
             1 -> {
@@ -104,19 +171,23 @@ companion object{
 
     fun getSpeicelDate(speicelDate: Date): String {
         var speicelDateString: String = "ERROR!"
-        when (speicelDate){
-            Date(20, 12, 1997)->{
-               speicelDateString = "my birthday"
+        when (speicelDate) {
+            Date(20, 12, 1997) -> {
+                speicelDateString = "my birthday"
             }
-            Date(18, 7 ,2014)->{
+            Date(18, 7, 2014) -> {
                 speicelDateString = "the date!"
             }
-            Date(18, 2, 1998)->{
+            Date(18, 2, 1998) -> {
                 speicelDateString = "birthday my wife"
             }
 
 
         }
-       return speicelDateString
+        return speicelDateString
     }
 }
+
+
+
+
