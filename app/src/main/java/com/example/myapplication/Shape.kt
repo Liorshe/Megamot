@@ -1,6 +1,8 @@
 package com.example.myapplication
 
- open class Shape() {
+ abstract class Shape() {
+
+     abstract fun getArea() : String
 
 
 }

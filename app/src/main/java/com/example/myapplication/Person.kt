@@ -1,6 +1,6 @@
 package com.example.myapplication
 
-class Person() {
+abstract class Person() {
 
     var name: String = ""
     var age: Int = 0
@@ -8,7 +8,9 @@ class Person() {
     var address: String = ""
     var fatherName: String = ""
     var motherName: String = ""
-    var grade: String = ""
+
+
+    abstract fun getDescription(): String
 
 
     fun haveSameName(person1: Person, person2: Person): Boolean {
@@ -46,25 +48,25 @@ class Person() {
         return address
     }
 
-    fun setGrade(person: Person): String {
-        when {
-            (person.age >= 0 && person.age <= 7) -> {
-                grade = "Gan"
-            }
-            (person.age > 7 && person.age < 12)->{
-                grade = "School"
-            }
-            (person.age > 12 && person.age < 18)->{
-                grade = "High School"
-            }
-            (person.age > 18 && person.age < 21)->{
-                grade = "Army"
-            }
-            (person.age > 21)->{
-                grade = "Citizen"
-            }
-        }
-        return grade
-    }
+    //fun setGrade(person: Person): String {
+    //when {
+    //(person.age >= 0 && person.age <= 7) -> {
+    //grade = "Gan"
+    //}
+    //(person.age > 7 && person.age < 12)->{
+    // grade = "School"
+    // }
+    //(person.age > 12 && person.age < 18)->{
+    //    grade = "High School"
+
+    // (person.age > 18 && person.age < 21)->{
+    //  grade = "Army"
+    // }
+    // (person.age > 21)->{
+    //     grade = "Citizen"
+    // }
+    //  }
+    // return grade
+    //}
 
 }

@@ -52,7 +52,52 @@ class MainActivity : AppCompatActivity() {
         for (i in 0 until 101)
             Log.d("TEST_LOOP", "$i")
 
-        var dateArray: ArrayList<Date> = arrayListOf()
+
+        //exsmplev
+        fun checkShapeArray() {
+            var circle1 = Circle()
+            var circle2 = Circle()
+            var circle3 = Circle()
+            var square1 = Square()
+            var square2 = Square()
+            var square3 = Square()
+            var triangle1 = Triangle()
+            var triangle2 = Triangle()
+
+
+            var shapeArrayList: ArrayList<Shape> = arrayListOf()
+            shapeArrayList.add(circle1)
+            shapeArrayList.add(circle2)
+            shapeArrayList.add(circle3)
+            shapeArrayList.add(square1)
+            shapeArrayList.add(square2)
+            shapeArrayList.add(square3)
+            shapeArrayList.add(triangle1)
+            shapeArrayList.add(triangle2)
+
+            for (i in 0 until shapeArrayList.size){
+                var value: Shape = shapeArrayList[i]
+                Log.d ("TEST_SHAPE", value.getArea())
+            }
+
+        }
+
+        var teacher1 = Teacher("Yossi", 32456755 , 26)
+        var student11 = Student("bar", 16, 9)
+        var student12 = Student("gal", 16 , 9)
+        var student13 = Student("Tal", 16 , 9)
+
+        var teacherStudentList:ArrayList<Person> = arrayListOf(student11, student12 , student13)
+
+        teacher1.studentList.addAll(teacherStudentList)
+
+        for (i in 0 until teacherStudentList.size){
+            var value: Person = teacherStudentList[i]
+            Log.d("TEST_TEACHER" , value.getDescription())
+        }
+
+
+
     }
 
 

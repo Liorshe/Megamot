@@ -1,4 +1,4 @@
-#Fri Jul 05 11:57:47 IDT 2019
+#Sun Jul 07 19:48:50 IDT 2019
 base.0=C\:\\Users\\Lior12\\Desktop\\AndroidStudio\\app\\build\\intermediates\\dex\\debug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
